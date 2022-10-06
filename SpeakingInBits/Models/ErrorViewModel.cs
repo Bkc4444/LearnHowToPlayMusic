@@ -1,4 +1,4 @@
-namespace SpeakingInBits.Models
+namespace LearnHowToPlayMusic.Models
 {
     public class ErrorViewModel
     {

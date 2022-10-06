@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SpeakingInBits.Models;
+using LearnHowToPlayMusic.Models;
 using System.Diagnostics;
 
-namespace SpeakingInBits.Controllers
+namespace LearnHowToPlayMusic.Controllers
 {
     public class HomeController : Controller
     {
