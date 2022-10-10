@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace SpeakingInBits.Data.Migrations
+namespace LearnHowToPlayMusic.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SpeakingInBits.Models;
+using LearnHowToPlayMusic.Models;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
-namespace SpeakingInBits.Controllers
+namespace LearnHowToPlayMusic.Controllers
 {
+    //[Authorize]//You have to be logged in to enter this website
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -12,12 +14,14 @@ namespace SpeakingInBits.Controllers
         {
             _logger = logger;
         }
-
+        //[AllowAnonymous] // You can see the homepage without being logged in
         public IActionResult Index()
         {
             return View();
         }
 
+        //This will make it to where you have to be logged in as a student to access this feature
+        //[Authorize(Roles = IdentityHelper.Student)]
         public IActionResult Privacy()
         {
             return View();

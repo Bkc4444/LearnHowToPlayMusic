@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace SpeakingInBits.Data
+namespace LearnHowToPlayMusic.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
