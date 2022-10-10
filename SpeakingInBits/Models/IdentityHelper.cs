@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 #nullable disable
 namespace LearnHowToPlayMusic.Models
 {
@@ -20,6 +21,27 @@ namespace LearnHowToPlayMusic.Models
                 {
                     await roleManger.CreateAsync(new IdentityRole(role));
                 }
+            }
+        }
+        public static async Task CreateDefaultUser(IServiceProvider provider, string role)
+        {
+            //This is creating a user
+            var userManager = provider.GetService<UserManager<IdentityUser>>();
+
+            // If there are no users present make the default user
+            int numUsers = (await userManager.GetUsersInRoleAsync(role)).Count;
+            if (numUsers == 0)// if not users are in the specified role
+            {
+                var defaultUser = new IdentityUser()
+                {
+                    Email = "instuctor@learntoplaymusic.com",
+                    UserName = "Admin"
+                };
+
+                // Hardcoding a password. DO NOT DO THIS
+                await userManager.CreateAsync(defaultUser, "Programming1#");
+
+                await userManager.AddToRoleAsync(defaultUser, role);
             }
         }
     }
